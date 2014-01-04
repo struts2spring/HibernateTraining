@@ -18,8 +18,18 @@
 		<!-- <mapping class="com.example.training.inheritance.TwoWheeler" /> -->
 		<!-- <mapping class="com.example.training.inheritance.FourWheeler" /> -->
 		<!-- example inheritance.singletable -->
-		<mapping class="com.example.training.inheritance.singletable.Vehical" />
-		<mapping class="com.example.training.inheritance.singletable.TwoWheeler" />
-		<mapping class="com.example.training.inheritance.singletable.FourWheeler" />
+		<!-- <mapping class="com.example.training.inheritance.singletable.Vehical" /> -->
+		<!-- <mapping class="com.example.training.inheritance.singletable.TwoWheeler" /> -->
+		<!-- <mapping class="com.example.training.inheritance.singletable.FourWheeler" /> -->
+
+		<!-- example inheritance.singletable -->
+<!-- 		<mapping class="com.example.training.inheritance.tableperclass.Vehical" /> -->
+<!-- 		<mapping class="com.example.training.inheritance.tableperclass.TwoWheeler" /> -->
+<!-- 		<mapping class="com.example.training.inheritance.tableperclass.FourWheeler" /> -->
+		
+		<!-- example inheritance.singletable -->
+		<mapping class="com.example.training.inheritance.joined.Vehical" />
+		<mapping class="com.example.training.inheritance.joined.TwoWheeler" />
+		<mapping class="com.example.training.inheritance.joined.FourWheeler" />
 	</session-factory>
 </hibernate-configuration>
