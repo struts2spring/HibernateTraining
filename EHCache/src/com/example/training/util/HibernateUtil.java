@@ -9,14 +9,6 @@ import org.slf4j.LoggerFactory;
 
 public class HibernateUtil {
 
-	/**
-	 * Parameter used to define the XML Hibernate configuration file
-	 */
-	private static final String HIBERNATE_CONFIGURATION_FILE_PROPERTY = "hibernate.configuration.file";
-
-	/**
-	 * Class logger
-	 */
 	private static Logger log = LoggerFactory.getLogger(HibernateUtil.class);
 
 	/**
@@ -30,7 +22,6 @@ public class HibernateUtil {
 
 	static {
 		try {
-			// Create the SessionFactory
 			sessionFactory = new Configuration().configure().buildSessionFactory();
 		} catch (HibernateException ex) {
 			throw new RuntimeException("Configuration problem: " + ex.getMessage(), ex);
@@ -40,7 +31,7 @@ public class HibernateUtil {
 	/**
 	 * The thread-local Hibernate session object
 	 */
-	private static final ThreadLocal threadLocal = new ThreadLocal();
+	private static final ThreadLocal<Session> threadLocal = new ThreadLocal<Session>();
 
 	public static Session getSession() throws HibernateException {
 		return currentSession();
@@ -89,7 +80,6 @@ public class HibernateUtil {
 	 * 
 	 * @return
 	 * @throws HibernateException
-	 * @throws HibernateException
 	 */
 	public static Session disconnectSession() throws HibernateException {
 		Session session = currentSession();
@@ -100,10 +90,9 @@ public class HibernateUtil {
 	}
 
 	/**
-	 * Returns an instance of a session mananger used to obtain a Hibernate
+	 * Returns an instance of a HibernateUtil used to obtain a Hibernate
 	 * Session object.
 	 * 
-	 * @return the Hibernate Util :.
 	 */
 	public static HibernateUtil getInstance() {
 		return hibernateUtil;

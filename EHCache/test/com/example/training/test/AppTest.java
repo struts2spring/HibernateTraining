@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
 
@@ -19,7 +20,8 @@ public class AppTest {
 	public void testGetCountries() {
 		CountryDAO dao = new CountryDAO();
 		for (int i = 1; i <= 5; i++) {
-			Transaction tx = HibernateUtil.getSession().beginTransaction();
+			Session session = HibernateUtil.getSession();
+			Transaction tx = session.beginTransaction();
 			TestTimer timer = new TestTimer("testGetCountries");
 			List<Country> countries = dao.getCountries();
 			tx.commit();
