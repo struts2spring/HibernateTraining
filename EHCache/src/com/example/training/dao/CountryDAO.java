@@ -16,6 +16,10 @@ public class CountryDAO {
 
 	public List<Country> getCountries() {
 		Session session = HibernateUtil.currentSession();
-		return session.createQuery("from Country as c order by c.cnCode").setCacheable(true).setCacheRegion("country").list();
+		List<Country> countries = session
+				.createQuery("from Country as c order by c.cnCode")
+				.setCacheable(true).setCacheRegion("country").list();
+
+		return countries;
 	}
 }
